@@ -11,4 +11,4 @@ def hello():
         return make_response('Malformed request', 400)
     my_dict = {'key': 'dictionary value'}
     headers = {"Content-Type": "application/json"}
-    return make_response(jsonify(my_dict), 200, headers)
+    return make_response(jsonify(my_dict), 200, headers);
