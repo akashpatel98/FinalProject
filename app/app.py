@@ -1,12 +1,12 @@
-from flask import make_response, jsonify
+from flask import make_response, render_template, jsonify, request, Response,
 from typing import List, Dict
 import simplejson as json
-from flask import Flask, request, Response, redirect
+from flask import Flask, redirect, url_for
 from flask import render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 mysql = MySQL(cursorclass=DictCursor)
 
 app.config['MYSQL_DATABASE_HOST'] = 'db'
@@ -16,6 +16,42 @@ app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'dataDeniro'
 mysql.init_app(app)
 
+
+
+@app.route("/api/v2/test_response")
+def users():
+    headers = {"Content-Type": "application/json"}
+    return make_response(
+        'Test worked!',
+        200,
+        headers=headers
+    )
+
+@app.errorhandler(404)
+def not_found():
+    """Page not found."""
+    return make_response(
+        render_template("404.html"),
+        404
+     )
+
+
+@app.errorhandler(400)
+def bad_request():
+    """Bad request."""
+    return make_response(
+        render_template("400.html"),
+        400
+    )
+
+
+@app.errorhandler(500)
+def server_error():
+    """Internal server error."""
+    return make_response(
+        render_template("500.html"),
+        500
+    )
 
 @app.route("/", methods=['GET'])
 def hello():
