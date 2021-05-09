@@ -2,7 +2,7 @@ version: "2"
 services:
   app:
     build: ./app
-    container_name: "AddAuth"
+    container_name: "FlaskAddAuth"
     links:
       - db
     ports:
@@ -10,7 +10,7 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: "MySQL_Database8"
+    container_name: "Add_Auth"
     ports:
       - "32000:3306"
     environment:
