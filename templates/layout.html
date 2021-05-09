@@ -1,4 +1,4 @@
-      <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 
@@ -6,9 +6,14 @@
 
     <!-- Bootstrap CSS -->
 
-
+    <title>Jinja Demo Site</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+          content="Smarter page templates with Flask & Jinja."/>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/static/css/home.css" rel="stylesheet" />
+     {% block css %}{% endblock %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 {% if user %}
@@ -20,7 +25,11 @@
  <body>
 <!-- As a heading -->
 
-
+{% include 'navigation.html' %}
+    {% include 'navigation.html' %}
+    <div class="container">
+        <h1>Jinja Demo Site</h1>
+        <p>Smarter page templates with Flask & Jinja.</p>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-1">
   <a class="navbar-brand" href="/">{% if user %}{{ user.username }}'s Homepage{% else %}
         <title>Welcome to My Homepage</title>
@@ -55,6 +64,7 @@
     <script crossorigin="anonymous"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </div>
 </div>
 </body>
 </html>
