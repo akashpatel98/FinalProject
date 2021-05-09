@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Score</th>
+        <th scope="col">Title</th>
+        <th scope="col">Column_6</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for deniro in deniros %}
+    <tr>
+        <td><a href="view/{{deniro.id}}">{{ deniro.fldYear }}</a></td>
+        <td>{{ deniro.fldScore }}</td>
+        <td>{{ deniro.fldTitle }}</td>
+        <td>{{ deniro.fldColumn_6 }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
