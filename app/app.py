@@ -1,4 +1,4 @@
-from flask import make_response, render_template, jsonify, request, Response,
+from flask import make_response, render_template, jsonify, request, Response
 from typing import List, Dict
 import simplejson as json
 from flask import Flask, redirect, url_for
@@ -17,7 +17,6 @@ app.config['MYSQL_DATABASE_DB'] = 'dataDeniro'
 mysql.init_app(app)
 
 
-
 @app.route("/api/v2/test_response")
 def users():
     headers = {"Content-Type": "application/json"}
@@ -27,13 +26,14 @@ def users():
         headers=headers
     )
 
+
 @app.errorhandler(404)
 def not_found():
     """Page not found."""
     return make_response(
         render_template("404.html"),
         404
-     )
+    )
 
 
 @app.errorhandler(400)
@@ -52,6 +52,7 @@ def server_error():
         render_template("500.html"),
         500
     )
+
 
 @app.route("/", methods=['GET'])
 def hello():
