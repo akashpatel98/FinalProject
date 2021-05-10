@@ -1,12 +1,18 @@
-from flask import make_response, render_template, jsonify, request, Response
+from flask import make_response, jsonify, request, Response
 from typing import List, Dict
 import simplejson as json
-from flask import Flask, redirect, url_for
-from flask import render_template
+from flask import Flask, redirect
+from flask import render_template, url_for
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
+import config
 
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__, instance_relative_config=False)
+app.config.from_object('config.Config')
+app.config.from_object('config.ProdConfig')
+app.config.from_object('config.DevConfig')
+app.config["RECAPTCHA_PUBLIC_KEY"] = "iubhiukfgjbkhfvgkdfm"
+app.config["RECAPTCHA_PARAMETERS"] = {"size": "100%"}
 mysql = MySQL(cursorclass=DictCursor)
 
 app.config['MYSQL_DATABASE_HOST'] = 'db'
