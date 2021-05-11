@@ -15,6 +15,8 @@ both participants must be on the same server.
 automatically so we don't have to close the server everytime we make a change.
 * $ "npm run devStart" this is the command to start our node.js server as per server.js
 
+ ![View the chat feature](screenshots/fix.PNG) 
+
  ![View the chat feature](screenshots/successfulconnection.PNG) 
  -This figure above shows successful connection between Akash and I.
  -It clearly states that I connected, as well as Akash by presenting our names- followed by connected
