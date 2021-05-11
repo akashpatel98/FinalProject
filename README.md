@@ -1,5 +1,6 @@
-# AddAuthentication - Akash Patel
-
+# Login Page & Signup Page - Akash Patel
+* This Feature Build sign-up and login pages.
+* Uses database to store usernames and password.
 
 # Add Chat Feature- Tarik Amraoui
 
