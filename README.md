@@ -21,6 +21,8 @@ automatically so we don't have to close the server everytime we make a change.
  -This figure above shows successful connection between Akash and I.
  -It clearly states that I connected, as well as Akash by presenting our names- followed by connected
 
+ ![View the chat feature](screenshots/hello.PNG) 
+ 
  ![View the conversation](screenshots/GoodMorning.PNG) 
  -This figure shows me and Akash having a conversation.
  -It shows my name followed by the messages. It happens instantaneously.
